@@ -32,6 +32,8 @@ defmodule GithubDrawing do
     week_of_year = ceil(Date.day_of_year(Date.utc_today()) / 7)
     day_of_week = Date.day_of_week(Date.utc_today())
 
+    IO.puts("week of year: " <> week_of_year <> ", day of week: " <> day_of_week)
+
     if week_of_year < 50 &&
          week_of_year > 1 &&
          day_of_week < 7 &&
