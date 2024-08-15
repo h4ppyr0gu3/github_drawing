@@ -1,0 +1,3 @@
+%{
+  "egit": {:hex, :egit, "0.1.9", "637b6ac2e11a0a80da845611ac875082794bdea5af06be66553cd93c11a38dae", [:rebar3], [], "hexpm", "ec6e0d2e9a5c51314c53689038551430f3639b2249484562f3e81b24f82f039e"},
+}
