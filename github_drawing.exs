@@ -32,15 +32,22 @@ defmodule GithubDrawing do
     week_of_year = ceil(Date.day_of_year(Date.utc_today()) / 7)
     day_of_week = Date.day_of_week(Date.utc_today())
 
-    IO.puts("week of year: " <> week_of_year <> ", day of week: " <> day_of_week)
+    IO.puts(
+      "week of year: " <>
+        Integer.to_string(week_of_year) <>
+        ", day of week: " <>
+        Integer.to_string(day_of_week)
+    )
 
-    if week_of_year < 50 &&
+    if week_of_year < 52 &&
          week_of_year > 1 &&
          day_of_week < 7 &&
          day_of_week > 1 do
-      index = day_of_week - 2
+      index = day_of_week - 1
       string = Enum.at(display_array, index)
 
+      # IO.inspect(string)
+      # IO.inspect(String.at(string, week_of_year - 2))
       case String.at(string, week_of_year - 2) do
         "█" -> true
         _ -> false
@@ -72,9 +79,10 @@ defmodule GithubDrawing do
   end
 
   def string_to_expected_output(string) do
-    output_string = String.split(string, "")
-    |> Enum.reject(fn letter -> letter == "" end)
-    |> concatenate_letters()
+    output_string =
+      String.split(string, "")
+      |> Enum.reject(fn letter -> letter == "" end)
+      |> concatenate_letters()
 
     Enum.map(output_string, fn line -> IO.puts(line) end)
 
